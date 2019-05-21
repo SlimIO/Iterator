@@ -30,7 +30,7 @@ function* numberLines(next) {
 async function main() {
     await iterator.fromStream(createReadStream("./slimio.toml"),
         splitLines,
-        iterator.fTry(numberLines),
+        iterator.tryOn(numberLines),
         iterator.whileOn(console.log)
     );
     console.log("done!");
