@@ -3,7 +3,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/is/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-Iterators utils
+SlimIO Iterator utilities designed to manage and help developer to interact with iterators to release **lazy** code.
 
 ## Requirements
 - Node.js v10 or higher
