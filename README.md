@@ -56,7 +56,34 @@ fromStream(
 ```
 
 ## API
-TBC
+
+<details><summary>compose(...generatorFuncs: GeneratorFunction[]): Generator</summary>
+<br />
+
+</details>
+
+<details><summary>tryOn(generatorFunc: GeneratorFunction): GeneratorFunction</summary>
+<br />
+
+</details>
+
+
+<details><summary>whileOn(fn: Function): GeneratorFunction</summary>
+<br />
+
+</details>
+
+
+<details><summary>fromStream(stream: Stream.Readable, target: Generator): Promise< void ></summary>
+<br />
+
+</details>
+
+
+<details><summary>mergeAsyncIterator< T >(iterator: AsyncIterator< T >): T[];</summary>
+<br />
+
+</details>
 
 ## License
 MIT
