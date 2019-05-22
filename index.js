@@ -3,12 +3,17 @@ const is = require("@slimio/is");
 const isStream = require("is-stream");
 
 /**
- * @func chain
- * @desc Chain multiple generator functions
- * @param  {...any} generatorFuncs at least one generator function
- * @returns {any}
+ * @namespace Iterator
  */
-function chain(...generatorFuncs) {
+
+/**
+ * @func compose
+ * @desc Chain multiple generator functions
+ * @memberof Iterator
+ * @param  {...GeneratorFunction} generatorFuncs at least one generator function
+ * @returns {Generator}
+ */
+function compose(...generatorFuncs) {
     if (generatorFuncs.length < 1) {
         throw new Error("Need at least 1 argument");
     }
@@ -36,6 +41,13 @@ function chain(...generatorFuncs) {
     return generatorObject;
 }
 
+/**
+ * @func tryOn
+ * @desc Surround generator with a Try/Finally and return the target automatically
+ * @memberof Iterator
+ * @param {!GeneratorFunction} generatorFunc generator
+ * @returns {GeneratorFunction}
+ */
 function tryOn(generatorFunc) {
     if (!is.generatorFunction(generatorFunc)) {
         throw new TypeError("generatorFunc must be a Generator");
@@ -51,6 +63,13 @@ function tryOn(generatorFunc) {
     };
 }
 
+/**
+ * @func whileOn
+ * @desc Iterate on a given handler
+ * @memberof Iterator
+ * @param {!Function} fn any function handler
+ * @returns {GeneratorFunction}
+ */
 function whileOn(fn) {
     if (!is.func(fn)) {
         throw new TypeError("fn must be a Function");
@@ -63,11 +82,22 @@ function whileOn(fn) {
     };
 }
 
-async function fromStream(stream, ...generatorFuncs) {
+/**
+ * @async
+ * @func fromStream
+ * @desc Create an Iterator from a given Node.js Stream (that must be Readable).
+ * @memberof Iterator
+ * @param {!any} stream a Node.js Read Stream
+ * @param {!Generator} target target generator
+ * @returns {Promise<void>}
+ */
+async function fromStream(stream, target) {
     if (!isStream(stream)) {
         throw new TypeError("stream must be a Node.js Stream!");
     }
-    const target = chain(...generatorFuncs);
+    if (!is.generator(target)) {
+        throw new TypeError("target must be a Generator");
+    }
 
     for await (const buffer of stream) {
         target.next(buffer);
@@ -75,6 +105,14 @@ async function fromStream(stream, ...generatorFuncs) {
     target.return();
 }
 
+/**
+ * @template T
+ * @async
+ * @func mergeAsyncIterator
+ * @desc Merge all values of an Asynchronous Iterator in one complete Array
+ * @param {!AsyncIterator<T>} iterator Asynchronous Iterator
+ * @returns {Promise<T[]>}
+ */
 async function mergeAsyncIterator(iterator) {
     if (!is.asyncIterable(iterator)) {
         throw new TypeError("iterator must be an Asynchronous Iterator");
@@ -89,7 +127,7 @@ async function mergeAsyncIterator(iterator) {
 }
 
 module.exports = {
-    chain,
+    compose,
     fromStream,
     tryOn,
     whileOn,
