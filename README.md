@@ -19,7 +19,41 @@ $ yarn add @slimio/iterator
 ```
 
 ## Usage example
-TBC
+```js
+const { fromStream, tryOn, whileOn, compose } = require("@slimio/iterator");
+const { createReadStream } = require("fs");
+
+function* splitLines(target) {
+    let previous = "";
+    try {
+        while (true) {
+            previous += yield;
+            let eolIndex;
+            while ((eolIndex = previous.indexOf("\n")) >= 0) {
+                target.next(previous.slice(0, eolIndex));
+                previous = previous.slice(eolIndex + 1);
+            }
+        }
+    }
+    finally {
+        if (previous.length > 0) {
+            target.next(previous);
+        }
+        target.return();
+    }
+}
+
+function* numberLines(next) {
+    for (let lineCount = 0; ;lineCount++) {
+        next(`${lineCount}: ${yield}`);
+    }
+}
+
+const fileToRead = process.argv[2];
+fromStream(
+    createReadStream(fileToRead), compose(splitLines, tryOn(numberLines), whileOn(console.log))
+).then(() => console.log("done")).catch(console.error);
+```
 
 ## API
 TBC
