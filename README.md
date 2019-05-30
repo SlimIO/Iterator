@@ -85,5 +85,13 @@ fromStream(
 
 </details>
 
+## Dependencies
+
+|Name|Refactoring|Security Risk|Usage|
+|---|---|---|---|
+|[@slimio/is](https://github.com/SlimIO/is#readme)|Minor|Low|Type checker|
+|[is-stream](https://github.com/sindresorhus/is-stream#readme)|⚠️Major|Medium|Stream type checker|
+
+
 ## License
 MIT
