@@ -1,6 +1,3 @@
 {
-    "extends": "@slimio/eslint-config",
-    "rules": {
-        "callback-return": "off"
-    }
+    "extends": "@slimio/eslint-config"
 }
