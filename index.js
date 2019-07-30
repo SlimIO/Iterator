@@ -1,3 +1,5 @@
+"use strict";
+
 // Require Third-party Dependencies
 const is = require("@slimio/is");
 const isStream = require("is-stream");
@@ -7,8 +9,8 @@ const isStream = require("is-stream");
  */
 
 /**
- * @func compose
- * @desc Chain multiple generator functions
+ * @function compose
+ * @description Chain multiple generator functions
  * @memberof Iterator
  * @param  {...GeneratorFunction} generatorFuncs at least one generator function
  * @returns {Generator}
@@ -42,8 +44,8 @@ function compose(...generatorFuncs) {
 }
 
 /**
- * @func tryOn
- * @desc Surround generator with a Try/Finally and return the target automatically
+ * @function tryOn
+ * @description Surround generator with a Try/Finally and return the target automatically
  * @memberof Iterator
  * @param {!GeneratorFunction} generatorFunc generator
  * @returns {GeneratorFunction}
@@ -64,8 +66,8 @@ function tryOn(generatorFunc) {
 }
 
 /**
- * @func whileOn
- * @desc Iterate on a given handler
+ * @function whileOn
+ * @description Iterate on a given handler
  * @memberof Iterator
  * @param {!Function} fn any function handler
  * @returns {GeneratorFunction}
@@ -84,8 +86,8 @@ function whileOn(fn) {
 
 /**
  * @async
- * @func fromStream
- * @desc Create an Iterator from a given Node.js Stream (that must be Readable).
+ * @function fromStream
+ * @description Create an Iterator from a given Node.js Stream (that must be Readable).
  * @memberof Iterator
  * @param {!any} stream a Node.js Read Stream
  * @param {!Generator} target target generator
@@ -108,8 +110,8 @@ async function fromStream(stream, target) {
 /**
  * @template T
  * @async
- * @func mergeAsyncIterator
- * @desc Merge all values of an Asynchronous Iterator in one complete Array
+ * @function mergeAsyncIterator
+ * @description Merge all values of an Asynchronous Iterator in one complete Array
  * @param {!AsyncIterator<T>} iterator Asynchronous Iterator
  * @returns {Promise<T[]>}
  */
