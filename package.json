@@ -21,6 +21,11 @@
         "utils",
         "helper"
     ],
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "slimio.toml"
+    ],
     "author": "SlimIO",
     "license": "MIT",
     "bugs": {
