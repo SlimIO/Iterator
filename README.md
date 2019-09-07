@@ -1,12 +1,15 @@
 # iterator
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/is/commit-activity)
+![version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/SlimIO/iterator/master/package.json?token=AOgWw3vrgQuu-U4fz1c7yYZyc7XJPNtrks5catjdwA%3D%3D&query=$.version&label=Version)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/SlimIO/iterator/commit-activity)
 ![MIT](https://img.shields.io/github/license/mashape/apistatus.svg)
+![dep](https://img.shields.io/david/SlimIO/Iterator)
+![size](https://img.shields.io/bundlephobia/min/@slimio/iterator)
+[![Known Vulnerabilities](https://snyk.io//test/github/SlimIO/Iterator/badge.svg?targetFile=package.json)](https://snyk.io//test/github/SlimIO/Iterator?targetFile=package.json)
 
 SlimIO Iterator utilities designed to manage and help developer to interact with iterators to release **lazy** code.
 
 ## Requirements
-- Node.js v10 or higher
+- [Node.js](https://nodejs.org/en/) v10 or higher
 
 ## Getting Started
 
