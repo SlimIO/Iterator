@@ -5,6 +5,7 @@
 ![dep](https://img.shields.io/david/SlimIO/Iterator)
 ![size](https://img.shields.io/bundlephobia/min/@slimio/iterator)
 [![Known Vulnerabilities](https://snyk.io//test/github/SlimIO/Iterator/badge.svg?targetFile=package.json)](https://snyk.io//test/github/SlimIO/Iterator?targetFile=package.json)
+[![Build Status](https://travis-ci.com/SlimIO/Iterator.svg?branch=master)](https://travis-ci.com/SlimIO/Iterator)
 
 SlimIO Iterator utilities designed to manage and help developer to interact with iterators to release **lazy** code.
 
