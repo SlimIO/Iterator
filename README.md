@@ -10,7 +10,7 @@
 SlimIO Iterator utilities designed to manage and help developer to interact with iterators to release **lazy** code.
 
 ## Requirements
-- [Node.js](https://nodejs.org/en/) v10 or higher
+- [Node.js](https://nodejs.org/en/) v12 or higher
 
 ## Getting Started
 
