@@ -108,7 +108,6 @@ async function fromStream(stream, target) {
 }
 
 /**
- * @template T
  * @async
  * @function mergeAsyncIterator
  * @description Merge all values of an Asynchronous Iterator in one complete Array
